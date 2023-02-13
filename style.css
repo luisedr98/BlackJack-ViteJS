@@ -1,0 +1,25 @@
+*{
+ 
+  background-color: #2F4F30;
+  color: white;
+}
+
+.imagen{
+  position: relative;
+  width: 100px;
+  left: 120px;
+  margin-left: -55px;
+}
+
+
+.title{
+  background-color: black;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.container-fluid{
+  height: 225px;
+}
