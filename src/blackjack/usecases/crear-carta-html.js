@@ -8,7 +8,7 @@
 
 export const crearCartaHTML = (carta) => {
     const cartaImg = document.createElement("img");
-    cartaImg.src = `/assets/cartas/${carta}.png`;
+    cartaImg.src = `/BlackJack-ViteJS/assets/cartas/${carta}.png`;
     cartaImg.classList.add("imagen");
     cartaImg.alt = "cartas";
     return cartaImg;
