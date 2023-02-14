@@ -7,6 +7,8 @@
 
 
 export const crearCartaHTML = (carta) => {
+    if(!carta) throw Error('El argumento carta es obligatorio');
+    
     const cartaImg = document.createElement("img");
     cartaImg.src = `/BlackJack-ViteJS/assets/cartas/${carta}.png`;
     cartaImg.classList.add("imagen");

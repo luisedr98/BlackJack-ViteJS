@@ -1,4 +1,5 @@
 import { crearDeck, pedirCarta, valorCarta, determinarGanador, crearCartaHTML } from "./blackjack/usecases/index.js";
+import swAlerta from "./helpers/sweetAlert.js";
 
 let deck = [];
 const tipos = ["C", "D", "H", "S"],
@@ -31,7 +32,7 @@ const acumularPuntos = (turno, carta) => {
   return puntosJugadores[turno];
 };
 
-const turnoComputadora = (puntosMinimos) => {
+const turnoComputadora = async (puntosMinimos) => {
   let puntosComputadora = 0;
   do {
     const carta = pedirCarta(deck);
@@ -39,8 +40,13 @@ const turnoComputadora = (puntosMinimos) => {
     const imagenHTML = crearCartaHTML(carta);
     divCartasComputadora.appendChild(imagenHTML);
   } while (puntosMinimos > puntosComputadora && puntosMinimos <= 21);
-
-  determinarGanador(puntosJugadores);
+  try {
+    const { mensaje } = await determinarGanador(puntosJugadores);
+    swAlerta(mensaje);
+  
+  } catch (error) {
+    throw(error);
+  }
 
 };
 
